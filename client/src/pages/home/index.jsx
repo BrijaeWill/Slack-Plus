@@ -14,7 +14,7 @@ const Home = () =>{
                 <option value='laugh'>ComedyRoom</option>
                 <option value='chat'>Freedom of Chat</option>
                 <option value='silly'>Dont be serious have fun</option>
-
+                <option value='ai'>AI chat room</option>
             </select>
             <button className="btn btn-primary w-100"> Join Room</button>
         </div>
