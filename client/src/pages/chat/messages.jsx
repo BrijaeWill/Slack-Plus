@@ -10,14 +10,18 @@ const Messages = ({ socket }) => {
   useEffect(() => {
     socket.on('receive_message', (data) => {
       console.log(data);
-      setMessagesReceived((state) => [
-        ...state,
-        {
-          message: data.message,
-          username: data.username,
-          __createdtime__: data.__createdtime__,
-        },
-      ]);
+      setMessagesReceived((state) => {
+        const updatedState = [
+          ...state,
+          {
+            message: data.message,
+            username: data.username,
+            __createdtime__: data.__createdtime__,
+          },
+        ];
+        console.log('Updated state:', updatedState);  // Log inside the function after updating state
+        return updatedState;
+      });
     });
 
     // Remove event listener on component unmount
