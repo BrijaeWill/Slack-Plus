@@ -1,6 +1,6 @@
 // client/src/pages/chat/messages.js
 
-import styles from './styles.module.css';
+import './message.css';
 import { useState, useEffect } from 'react';
 
 const Messages = ({ socket }) => {
@@ -16,7 +16,7 @@ const Messages = ({ socket }) => {
           {
             message: data.message,
             username: data.username,
-            __createdtime__: data.__createdtime__,
+            _createdtime_: data._createdtime_,
           },
         ];
         console.log('Updated state:', updatedState);  // Log inside the function after updating state
@@ -33,18 +33,17 @@ const Messages = ({ socket }) => {
     const date = new Date(timestamp);
     return date.toLocaleString();
   }
-
   return (
-    <div className={styles.messagesColumn}>
+    <div className="messages-Column">
       {messagesRecieved.map((msg, i) => (
-        <div className={styles.message} key={i}>
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-            <span className={styles.msgMeta}>{msg.username}</span>
-            <span className={styles.msgMeta}>
-              {formatDateFromTimestamp(msg.__createdtime__)}
+        <div className="message p-3 mb-3 border rounded" key={i}>
+          <div className="d-flex justify-content-between">
+            <span className="msg-meta text-info">{msg.username}</span>
+            <span className="msg-meta text-muted">
+              {formatDateFromTimestamp(msg._createdtime_)}
             </span>
           </div>
-          <p className={styles.msgText}>{msg.message}</p>
+          <p className="msg-text">{msg.message}</p>
           <br />
         </div>
       ))}

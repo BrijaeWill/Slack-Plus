@@ -1,0 +1,63 @@
+html, body {
+    background: linear-gradient(180deg, #b5a58d, #d3c7b1);
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
+    color: #5c4f41;
+  }
+  
+  .messages-Column {
+    max-width: 800px;
+    width: 100%;
+    height: 85vh;
+    overflow-y: auto;
+    padding: 16px;
+    background-color: rgba(238, 223, 197, 0.85);
+    border-radius: 16px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(168, 136, 111, 0.5);
+  }
+  
+  .message {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+    border: 1px solid rgba(168, 136, 111, 0.3);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .d-flex {
+    display: flex;
+  }
+  
+  .justify-content-between {
+    justify-content: space-between;
+  }
+  
+  .msg-meta {
+    font-size: 0.85rem;
+    color: #a8d4de;
+  }
+  
+  .msg-text {
+    color: #fff;
+    font-size: 1rem;
+    margin-top: 8px;
+  }
+  
+  /* Adjustments for text color and layout */
+  .text-info {
+    color: #99d9e2;
+  }
+  
+  .text-muted {
+    color: #d3d3d3;
+  }
+  

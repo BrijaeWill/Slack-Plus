@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useNavigate } from 'react-router-dom';
+import './home.css'
 const Home = ({ username, setUsername, room, setRoom, socket }) => {
     const navigate = useNavigate();
 
@@ -15,7 +16,7 @@ const Home = ({ username, setUsername, room, setRoom, socket }) => {
         }
     }
     return (
-      <div className="container d-flex justify-content align-items-center min-vh-100">
+      <div className="container">
         <div className="form-container border p-4 rounded">
           <h1 className="text-center mb-4">DevRooms</h1>
           

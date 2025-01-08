@@ -51,7 +51,7 @@ io.on('connection', (socket) => {
 
     // Send a welcome message to the new user
     socket.emit('receive_message', {
-      message: (`Welcome ${username}`),
+      message: `Welcome ${username}`,
       username: CHAT_BOT,
       _createdtime_,
     });
