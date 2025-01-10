@@ -61,3 +61,102 @@ html, body {
     color: #d3d3d3;
   }
   
+/* Send messages css */
+.send-message-container {
+  background-color: rgba(238, 223, 197, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(168, 136, 111, 0.5);
+}
+
+/* Input field styling */
+.message-input {
+  border-radius: 12px;
+  padding: 8px 16px;
+  border: 1px solid rgba(168, 136, 111, 0.3);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #5c4f41;
+}
+
+/* Button styling */
+.send-message-btn {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: 1px solid rgba(168, 136, 111, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+.send-message-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #d3c7b1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.send-message-btn:active {
+  transform: scale(0.95);
+}
+/* Container for the room and users section */
+.room-users-column {
+  background-color: rgba(238, 223, 197, 0.85);
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(168, 136, 111, 0.5);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* Room title styling */
+.room-title {
+  color: #5c4f41;
+  font-size: 1.5rem;
+  margin-bottom: 16px;
+}
+
+/* Users title styling */
+.users-title {
+  color: #5c4f41;
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+}
+
+/* Users list styling */
+.users-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+}
+
+.user-item {
+  color: #5c4f41;
+  padding: 8px;
+  border-bottom: 1px solid rgba(168, 136, 111, 0.3);
+}
+
+.user-item.font-weight-bold {
+  font-weight: bold;
+}
+
+/* Leave button styling */
+.leave-room-btn {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: 1px solid rgba(168, 136, 111, 0.3);
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 8px 16px;
+  transition: all 0.3s ease;
+}
+
+.leave-room-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: #d3c7b1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.leave-room-btn:active {
+  transform: scale(0.95);
+}

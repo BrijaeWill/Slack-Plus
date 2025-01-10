@@ -1,6 +1,5 @@
-import styles from './styles.module.css';
 import React, { useState } from 'react';
-
+import './message.css';
 const SendMessage = ({ socket, username, room }) => {
   const [message, setMessage] = useState('');
 
@@ -14,18 +13,20 @@ const SendMessage = ({ socket, username, room }) => {
   };
 
   return (
-    <div className={styles.sendMessageContainer}>
+    <div className="d-flex justify-content-between align-items-center p-3 send-message-container">
       <input
-        className={styles.messageInput}
-        placeholder='Message...'
+        className="form-control me-3 message-input"
+        placeholder="Message..."
         onChange={(e) => setMessage(e.target.value)}
         value={message}
       />
-      <button className='btn btn-primary' onClick={sendMessage}>
+      <button
+        className="btn btn-primary send-message-btn"
+        onClick={sendMessage}
+      >
         Send Message
       </button>
     </div>
   );
-};
-
+}  
 export default SendMessage;

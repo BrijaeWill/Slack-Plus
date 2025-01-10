@@ -1,11 +1,11 @@
-import styles from './styles.module.css';
 import RoomAndUsersColumn from './room-and-users';
 import MessagesReceived from './messages';
 import SendMessage from './send-message';
+import './message.css';
 
 const Chat = ({ username, room, socket }) => {
   return (
-    <div className={styles.chatContainer}>
+    <div className="messages-column">
        <RoomAndUsersColumn socket={socket} username={username} room={room} />
        
       <div>

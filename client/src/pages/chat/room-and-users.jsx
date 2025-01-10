@@ -1,4 +1,4 @@
-import styles from './styles.module.css';
+import './message.css';
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -17,8 +17,8 @@ const RoomAndUsers = ({ socket, username, room }) => {
   }, [socket]);
 
   const leaveRoom = () => {
-    const __createdtime__ = Date.now();
-    socket.emit('leave_room', { username, room, __createdtime__ });
+    const _createdtime_ = Date.now();
+    socket.emit('leave_room', { username, room, _createdtime_});
     
     // Redirect to home page
 
@@ -26,17 +26,17 @@ const RoomAndUsers = ({ socket, username, room }) => {
   };
 
   return (
-    <div className={styles.roomAndUsersColumn}>
-      <h2 className={styles.roomTitle}>{room}</h2>
-
+    <div className="room-users-column p-3">
+      <h2 className="room-title">{room}</h2>
+  
       <div>
-        {roomUsers.length > 0 && <h5 className={styles.usersTitle}>Users:</h5>}
-        <ul className={styles.usersList}>
+        {roomUsers.length > 0 && <h5 className="users-title">Users:</h5>}
+        <ul className="users-list">
           {roomUsers.map((user) => (
             <li
-              style={{
-                fontWeight: `${user.username === username ? 'bold' : 'normal'}`,
-              }}
+              className={`user-item ${
+                user.username === username ? 'font-weight-bold' : ''
+              }`}
               key={user.id}
             >
               {user.username}
@@ -44,12 +44,12 @@ const RoomAndUsers = ({ socket, username, room }) => {
           ))}
         </ul>
       </div>
-
-      <button className='btn btn-outline' onClick={leaveRoom}>
+  
+      <button className="btn btn-outline-danger leave-room-btn" onClick={leaveRoom}>
         Leave
       </button>
     </div>
   );
-};
+}
 
 export default RoomAndUsers;
