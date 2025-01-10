@@ -28,7 +28,6 @@ pool.query('SELECT NOW()', (err, res) => {
     }
 });
 
-
 // Middleware
 app.use(cors({
     origin: ['http://localhost:5173', 'http://localhost:3000'],
@@ -128,11 +127,41 @@ const CHAT_BOT = 'CHATBOT';
 let chatRoom = ''; // Tracks the current chat room
 let allUsers = []; // Stores all connected users
 
+// Function to save a message to the database
+const saveMessage = async (room, username, message) => {
+    try {
+        await pool.query(
+            `INSERT INTO messages (chat_room, username, message) VALUES ($1, $2, $3)`,
+            [room, username, message]
+        );
+    } catch (err) {
+        console.error('Error saving message:', err);
+    }
+};
+
+// Function to get the last 100 messages from the database
+const getLast100Messages = async (room) => {
+    try {
+        const result = await pool.query(
+            `SELECT username, message, _createdtime_ 
+             FROM messages 
+             WHERE chat_room = $1 
+             ORDER BY _createdtime_ DESC 
+             LIMIT 100`,
+            [room]
+        );
+        return result.rows.reverse(); // Reverse to show the oldest messages first
+    } catch (err) {
+        console.error('Error fetching messages:', err);
+        return [];
+    }
+};
+
 io.on('connection', (socket) => {
     console.log(`User connected: ${socket.id}`);
 
     // Listen for 'join_room' event
-    socket.on('join_room', (data) => {
+    socket.on('join_room', async (data) => {
         const { username, room } = data; // Destructure room and username
         chatRoom = room;
         socket.join(room);
@@ -140,11 +169,13 @@ io.on('connection', (socket) => {
         // Add the new user to the allUsers array
         allUsers.push({ id: socket.id, username, room });
 
-        // Get all users in the same room
-        const chatRoomUsers = allUsers.filter((user) => user.room === room);
-
         // Broadcast updated user list to the room
+        const chatRoomUsers = allUsers.filter((user) => user.room === room);
         io.to(room).emit('chatroom_users', chatRoomUsers);
+
+        // Fetch and send the last 100 messages to the user
+        const lastMessages = await getLast100Messages(room);
+        socket.emit('load_messages', lastMessages);
 
         // Send a message to all users in the room
         const _createdtime_ = Date.now();
@@ -156,8 +187,24 @@ io.on('connection', (socket) => {
 
         // Send a welcome message to the new user
         socket.emit('receive_message', {
-            message: (`Welcome ${username}`),
+            message: `Welcome ${username}`,
             username: CHAT_BOT,
+            _createdtime_,
+        });
+    });
+
+    // Handle user sending a message
+    socket.on('send_message', async (data) => {
+        const { room, username, message } = data;
+
+        // Save the message to the database
+        await saveMessage(room, username, message);
+
+        // Broadcast the message to all users in the room
+        const _createdtime_ = Date.now();
+        io.to(room).emit('receive_message', {
+            message,
+            username,
             _createdtime_,
         });
     });
