@@ -1,13 +1,13 @@
-// client/src/pages/chat/index.js
-
-import './message.css';
+import styles from './styles.module.css';
 import MessagesReceived from './messages';
+import SendMessage from './send-message';
 
-const Chat = ({ socket }) => {
+const Chat = ({ username, room, socket }) => {
   return (
-    <div className="container">
+    <div className={styles.chatContainer}>
       <div>
         <MessagesReceived socket={socket} />
+        <SendMessage socket={socket} username={username} room={room} />
       </div>
     </div>
   );
