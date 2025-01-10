@@ -7,7 +7,7 @@ require('dotenv').config();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const { Pool } = require('pg');
-const leaveRoom = require('./utils/leave-room');
+const leaveRoom = require('./utils/leave-room.jsx')
 
 const JWT_SECRET = process.env.JWT_SECRET;
 const JWT_EXPIRES_IN = process.env.JWT_EXPIRES_IN;
@@ -178,7 +178,7 @@ io.on('connection', (socket) => {
     socket.on('leave_room', (data) => {
         const { username, room } = data;
         socket.leave(room);
-        const __createdtime__ = Date.now();
+        const__createdtime_ = Date.now();
         
         // Remove user from memory
         allUsers = leaveRoom(socket.id, allUsers);
@@ -186,7 +186,7 @@ io.on('connection', (socket) => {
         socket.to(room).emit('receive_message', {
           username: CHAT_BOT,
           message: `${username} has left the chat`,
-          __createdtime__,
+          _createdtime_,
         });
         console.log(`${username} has left the chat`);
       });
