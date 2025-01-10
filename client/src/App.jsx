@@ -1,20 +1,22 @@
 import './App.css'
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {io} from 'socket.io-client';
+import { io } from 'socket.io-client';
 import Home from './pages/home';
 import Chat from './pages/chat';
 
 const socket = io.connect('http://localhost:3000');
+
 function App() {
   const [username, setUsername] = useState('');
   const [room, setRoom] = useState('');
-  return(
-    <Router>
-      <div className='App'>
+
+  return (
+    <Router basename="/Slack-Plus/"> {/* Add basename */}
+      <div className="App">
         <Routes>
-          <Route 
-            path='/' 
+          <Route
+            path="/"
             element={
               <Home
                 username={username}
@@ -26,13 +28,13 @@ function App() {
             }
           />
           <Route
-          path='/chat'
-          element={<Chat username={username} room={room}socket={socket} />}
-            />
-          </Routes>
+            path="/chat"
+            element={<Chat username={username} room={room} socket={socket} />}
+          />
+        </Routes>
       </div>
     </Router>
   );
 }
 
-export default App
+export default App;
