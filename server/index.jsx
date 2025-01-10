@@ -110,6 +110,11 @@ app.post('/login', async (req, res) => {
     }
 });
 
+// Protected route (requires valid JWT)
+app.get('/protected', authenticateToken, (req, res) => {
+    res.send(`Hello, ${req.user.username}`);
+});
+
 // WebSocket server setup
 const server = http.createServer(app);
 const io = new Server(server, {
