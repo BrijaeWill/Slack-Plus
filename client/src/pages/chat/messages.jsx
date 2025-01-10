@@ -1,12 +1,10 @@
-// client/src/pages/chat/messages.js
-
 import './message.css';
 import { useState, useEffect } from 'react';
 
 const Messages = ({ socket }) => {
   const [messagesRecieved, setMessagesReceived] = useState([]);
 
-  // Runs whenever a socket event is recieved from the server
+  // Runs when socket event is recieved from the server
   useEffect(() => {
     socket.on('receive_message', (data) => {
       console.log(data);
