@@ -30,7 +30,7 @@ pool.query('SELECT NOW()', (err, res) => {
 
 // Middleware
 app.use(cors({
-    origin: ['http://localhost:5173', 'http://localhost:3000', 'https://brijaewill.github.io'], // Add GitHub Pages domain
+    origin: ['http://localhost:5173', 'http://localhost:4000', 'https://brijaewill.github.io'], // Add GitHub Pages domain
     methods: ['GET', 'POST'],
 }));
 app.use(express.json());
@@ -118,7 +118,7 @@ app.get('/protected', authenticateToken, (req, res) => {
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: ['http://localhost:5173', 'http://localhost:3000', 'https://brijaewill.github.io'], // Same for Socket.io
+        origin: ['http://localhost:5173', 'http://localhost:4000', 'https://brijaewill.github.io'], // Same for Socket.io
         methods: ['GET', 'POST'],
     },
 });
