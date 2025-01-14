@@ -46,9 +46,9 @@ Add environment variables (e.g., DATABASE_URL, JWT_SECRET).
 
 Deploy and note the public URL for your backend.
 
-##API Endpoints
+## API Endpoints
 
-## **Auth**
+ **Auth**
  
 POST /api/auth/register: Register a new user.
 
@@ -69,3 +69,8 @@ This project is licensed under the MIT License.
 Special thanks to the developers Brijae Williams, Kurt Thomas, Rafael Agredano, and Louis Pogorelc that made this project possible.
 
 also a big thank you and credit to to "Danny" from freeCodeCamp for guidance and various examples of how to write code within this project.
+
+
+## URL 
+
+https://github.com/BrijaeWill/Slack-Plus
