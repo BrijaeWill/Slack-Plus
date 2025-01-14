@@ -1,10 +1,10 @@
-#Stack-Plus
+# Stack-Plus
 
 A full-stack chat application that enables users to communicate in real time. This project includes a React frontend, a Node.js backend, and a PostgreSQL database for data persistence.
 
-#Tech Stack
+## **Tech Stack**
 
-**Frontend**
+### **Frontend**
 
 React: Frontend framework.
 
@@ -12,7 +12,7 @@ CSS: For styling.
 
 Axios: For making API calls.
 
-**Backend**
+### **Backend**
 
 Node.js: Server-side runtime.
 
@@ -20,7 +20,7 @@ Express.js: Web framework.
 
 PostgreSQL: Database for storing user and message data.
 
-##Deployment
+## **Deployment**
 
 **Frontend Deployment**
 
@@ -48,23 +48,23 @@ Deploy and note the public URL for your backend.
 
 ##API Endpoints
 
-**Auth**
-
+## **Auth**
+ 
 POST /api/auth/register: Register a new user.
 
 POST /api/auth/login: Log in an existing user.
 
-**Messages**
+### **Messages**
 
 GET /api/messages: Fetch all messages.
 
 POST /api/messages: Send a new message.
 
-##License
+## License
 
 This project is licensed under the MIT License.
 
-##Acknowledgements
+## Acknowledgements
 
 Special thanks to the developers Brijae Williams, Kurt Thomas, Rafael Agredano, and Louis Pogorelc that made this project possible.
 
