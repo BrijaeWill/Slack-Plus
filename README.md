@@ -74,3 +74,6 @@ also a big thank you and credit to to "Danny" from freeCodeCamp for guidance and
 ## URL 
 
 https://github.com/BrijaeWill/Slack-Plus
+
+https://brijaewill.github.io/Slack-Plus/
+
